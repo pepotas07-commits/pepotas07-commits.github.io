@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PL Software Lab — Entertainment & Family</title>
+  <style>
+    :root {
+      --primary: #5b4b8a;
+      --primary-light: #7c6bb0;
+      --accent: #ff6b6b;
+      --bg: #f8f7fc;
+      --card: #ffffff;
+      --text: #2d2a3e;
+      --muted: #6b6680;
+      --radius: 12px;
+      --shadow: 0 4px 20px rgba(91, 75, 138, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: var(--card);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 1.1rem;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.4rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-accent {
+      background: var(--accent);
+    }
+
+    .btn-accent:hover {
+      background: #ff5252;
+    }
+
+    /* Hero */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 3.5rem;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: 2.6rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .hero-content h1 span {
+      color: var(--primary);
+    }
+
+    .hero-content p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 1.8rem;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-visual {
+      background: linear-gradient(145deg, #ede9f7, #fce8e8);
+      border-radius: 20px;
+      height: 320px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-visual::before {
+      content: "🎮";
+      font-size: 5rem;
+      opacity: 0.9;
+    }
+
+    .floating-icons {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .floating-icons span {
+      position: absolute;
+      font-size: 1.8rem;
+      opacity: 0.7;
+    }
+
+    .floating-icons span:nth-child(1) { top: 18%; left: 12%; }
+    .floating-icons span:nth-child(2) { top: 22%; right: 15%; }
+    .floating-icons span:nth-child(3) { bottom: 20%; left: 18%; }
+    .floating-icons span:nth-child(4) { bottom: 25%; right: 12%; }
+
+    /* Sections */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title h2 {
+      font-size: 1.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* Features / Products */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(91, 75, 138, 0.12);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      background: #f0edf8;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* About / Mission */
+    .mission {
+      background: linear-gradient(135deg, var(--primary), #6d5aa8);
+      color: white;
+      border-radius: 20px;
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .mission h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .mission p {
+      opacity: 0.92;
+      margin-bottom: 1.2rem;
+    }
+
+    .mission ul {
+      list-style: none;
+    }
+
+    .mission li {
+      padding: 0.35rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .mission li::before {
+      content: "✓";
+      font-weight: 700;
+    }
+
+    /* Contact / CTA */
+    .cta {
+      text-align: center;
+      background: var(--card);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .cta h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .cta p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #2d2a3e;
+      color: #c8c4d8;
+      padding: 2.5rem 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-brand {
+      font-weight: 600;
+      color: white;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      color: #c8c4d8;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 2.5rem;
+      }
+
+      .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mission {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .mission ul {
+        display: inline-block;
+        text-align: left;
+      }
+
+      nav ul {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav">
+      <a href="#" class="logo">
+        <div class="logo-icon">PL</div>
+        <span>PL Software Lab</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="btn">Get Started</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Software for <span>fun</span> and <span>family</span></h1>
+      <p>
+        PL Software Lab builds simple, delightful tools that bring families together 
+        through games, creative apps, and shared entertainment experiences.
+      </p>
+      <div class="hero-actions">
+        <a href="#products" class="btn">Explore Products</a>
+        <a href="#about" class="btn btn-accent">Our Mission</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-icons">
+        <span>👨‍👩‍👧</span>
+        <span>🎲</span>
+        <span>🎨</span>
+        <span>📱</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products">
+    <div class="section-title">
+      <h2>What we build</h2>
+      <p>Practical software designed for real families and everyday entertainment.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon">🎲</div>
+        <h3>Family Game Hub</h3>
+        <p>
+          Multiplayer party games and board-game style apps that work on phones, 
+          tablets, and TVs — perfect for game nights.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📚</div>
+        <h3>Story & Learn</h3>
+        <p>
+          Interactive story apps and light educational games for kids, 
+          with parent controls and offline mode.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎬</div>
+        <h3>Shared Media Tools</h3>
+        <p>
+          Simple tools to create family photo books, shared playlists, 
+          and private family media libraries.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section id="about">
+    <div class="mission">
+      <div>
+        <h2>Built for real life</h2>
+        <p>
+          We believe software should help families spend better time together — 
+          not pull them further apart. Every product from PL Software Lab is designed 
+          with simplicity, safety, and shared moments in mind.
+        </p>
+        <p>
+          No complicated accounts. No endless notifications. Just useful, 
+          fun tools that fit into everyday family life.
+        </p>
+      </div>
+      <div>
+        <ul>
+          <li>Family-first design</li>
+          <li>Privacy by default</li>
+          <li>Works offline when possible</li>
+          <li>Simple pricing, no tricks</li>
+          <li>Made for all ages</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact">
+    <div class="cta">
+      <h2>Ready to try something fun?</h2>
+      <p>
+        Join the early access list or reach out if you have an idea for a family-friendly app.
+      </p>
+      <a href="mailto:hello@plsoftwarelab.com" class="btn">hello@plsoftwarelab.com</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">PL Software Lab</div>
+      <div class="footer-links">
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div>© 2026 PL Software Lab</div>
+    </div>
+  </footer>
+
+</body>
+</html>
