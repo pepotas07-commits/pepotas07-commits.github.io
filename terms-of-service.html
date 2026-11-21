@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — PL Software Lab</title>
+  <style>
+    :root {
+      --primary: #5b4b8a;
+      --primary-light: #7c6bb0;
+      --accent: #ff6b6b;
+      --bg: #f8f7fc;
+      --card: #ffffff;
+      --text: #2d2a3e;
+      --muted: #6b6680;
+      --radius: 12px;
+      --shadow: 0 4px 20px rgba(91, 75, 138, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: var(--card);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 1.1rem;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.4rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-1px);
+    }
+
+    /* Main Content */
+    .policy-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .policy-card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: var(--shadow);
+    }
+
+    .policy-header {
+      border-bottom: 1px solid #ece9f5;
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .policy-header h1 {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .policy-date {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .policy-card h2 {
+      font-size: 1.5rem;
+      color: var(--text);
+      margin-top: 2.2rem;
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid #f0edf8;
+    }
+
+    .policy-card h3 {
+      font-size: 1.18rem;
+      color: var(--primary);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .policy-card p {
+      color: #423e54;
+      margin-bottom: 1rem;
+    }
+
+    .policy-card ul {
+      margin: 0.6rem 0 1.2rem 1.5rem;
+      color: #423e54;
+    }
+
+    .policy-card li {
+      margin-bottom: 0.5rem;
+    }
+
+    .policy-card a {
+      color: var(--primary);
+      text-decoration: underline;
+      word-break: break-word;
+    }
+
+    .policy-card a:hover {
+      color: var(--accent);
+    }
+
+    .highlight-box {
+      background: #f5f3fb;
+      border-left: 4px solid var(--primary);
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 1.2rem 0;
+    }
+
+    /* Footer */
+    footer {
+      background: #2d2a3e;
+      color: #c8c4d8;
+      padding: 2.5rem 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-brand {
+      font-weight: 600;
+      color: white;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #c8c4d8;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .policy-card {
+        padding: 1.8rem 1.3rem;
+      }
+      nav ul {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">PL</div>
+        <span>PL Software Lab</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html#products">Products</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html" class="active">Terms of Service</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="index.html" class="btn">Back to Home</a>
+    </div>
+  </header>
+
+  <!-- Terms of Service Content -->
+  <main class="policy-container">
+    <article class="policy-card">
+      <div class="policy-header">
+        <h1>Terms of Service</h1>
+        <p class="policy-date">Effective Date &amp; Last Updated: November 21, 2026</p>
+      </div>
+
+      <div class="highlight-box">
+        <p style="margin-bottom: 0;">
+          These Terms of Service ("Terms") govern your download, installation, access to, and use of all mobile applications published by <strong>PL Software Lab (PL Software)</strong> on Google Play and other app marketplaces—including our radio, music playlist, shared media, and family entertainment applications—as well as our website at <a href="https://pepotas07-commits.github.io/">https://pepotas07-commits.github.io/</a> (collectively, the "App" or "Service").
+        </p>
+      </div>
+
+      <h2>1. Acceptance of Terms</h2>
+      <p>
+        By downloading, installing, accessing, or using any PL Software Lab App or Service, you agree to be bound by these Terms of Service and our <a href="privacy-policy.html">Privacy Policy</a>. If you do not agree to these Terms, do not download, install, or use the App.
+      </p>
+      <p>
+        These Terms apply to all users worldwide. If you are accessing or using the App on behalf of a minor or as a parent or legal guardian, you accept these Terms on their behalf and are responsible for supervising their use of the App.
+      </p>
+
+      <h2>2. Eligibility</h2>
+      <p>
+        You must meet the minimum age required in your country or jurisdiction to consent to these Terms, or have verifiable permission from a parent or legal guardian who agrees to these Terms on your behalf. You represent that you have the legal capacity to enter into a binding agreement.
+      </p>
+
+      <h2>3. License to Use the App</h2>
+      <p>
+        Subject to your compliance with these Terms, PL Software Lab grants you a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to download, install, and use the App on a compatible mobile device that you own or control solely for your personal, non-commercial entertainment and informational use.
+      </p>
+
+      <h2>4. Acceptable Use &amp; Restrictions</h2>
+      <p>When using the App or Service, you agree that you will <strong>not</strong>:</p>
+      <ul>
+        <li>Copy, modify, adapt, translate, reverse engineer, decompile, disassemble, or attempt to extract the source code of the App, except to the extent expressly permitted by applicable law.</li>
+        <li>Distribute, rent, lease, lend, sell, sublicense, or otherwise transfer the App or any rights in the App to any third party.</li>
+        <li>Circumvent, disable, or interfere with security features, digital rights controls, or advertising mechanisms (including Google AdMob) integrated into the App.</li>
+        <li>Use the App for any unlawful, fraudulent, harmful, or unauthorized purpose, or in any manner that violates local, national, or international laws and regulations.</li>
+        <li>Use automated scripts, bots, or scrapers to access, overload, or disrupt the App, its servers, or connected third-party streams.</li>
+        <li>Remove, obscure, or alter any copyright, trademark, or proprietary notices displayed in the App.</li>
+      </ul>
+
+      <h2>5. Radio Streams, Music Playlists &amp; Third-Party Content</h2>
+      <p>
+        Certain PL Software Lab apps provide access to online radio streams, audio stations, music playlists, or links to third-party media sources:
+      </p>
+      <ul>
+        <li><strong>Third-Party Ownership:</strong> All third-party radio broadcasts, station logos, music tracks, and external media streams accessed through the App remain the sole property of their respective broadcasters, artists, and copyright holders. PL Software Lab does not host, own, or control third-party radio streams.</li>
+        <li><strong>Availability &amp; Quality:</strong> Because external radio stations and media feeds are operated by third parties, we cannot guarantee uninterrupted availability, audio quality, or accuracy of stream metadata. Streams may change or go offline without notice.</li>
+        <li><strong>User-Created Playlists:</strong> You are solely responsible for any playlists, links, or local media files you organize or play within the App, and you agree to use only content you have the legal right to access.</li>
+        <li><strong>Copyright &amp; Takedown Requests:</strong> We respect intellectual property rights. If you are a broadcaster or rights holder and believe a station listing or link in our App infringes your rights or should be removed, please contact us at <a href="mailto:pepotas07@gmail.com">pepotas07@gmail.com</a> and we will promptly review and take appropriate action.</li>
+      </ul>
+
+      <h2>6. Advertising &amp; Third-Party Services</h2>
+      <p>
+        To keep our apps free or affordable, the App may display advertisements served by third-party advertising networks, including <strong>Google AdMob</strong>, and rely on platform services such as <strong>Google Play Services</strong>.
+      </p>
+      <ul>
+        <li>Your interactions with third-party advertisers, external websites, or linked services are solely between you and those third parties.</li>
+        <li>We are not responsible for the content, accuracy, products, services, or privacy practices of third-party advertisements or external sites.</li>
+        <li>Information on how third-party advertising and analytics partners collect and process data—and how you can manage your ad preferences—is detailed in our <a href="privacy-policy.html">Privacy Policy</a>.</li>
+      </ul>
+
+      <h2>7. In-App Purchases &amp; Subscriptions</h2>
+      <p>
+        If any PL Software Lab App offers optional paid features, ad-removal upgrades, or subscriptions:
+      </p>
+      <ul>
+        <li>All payments and billing are processed securely through <strong>Google Play Billing</strong> (or the applicable app marketplace). PL Software Lab does not directly collect or store your payment card information.</li>
+        <li>Subscriptions, if offered, automatically renew unless canceled through your Google Play account settings prior to the end of the current billing period.</li>
+        <li>Refunds are handled in accordance with Google Play's refund policies and applicable consumer protection laws in your jurisdiction.</li>
+      </ul>
+
+      <h2>8. Intellectual Property</h2>
+      <p>
+        Excluding third-party streams, logos, and user-provided content, the App and its original software code, design, graphics, user interface, text, trademarks, and branding ("PL Software Lab" / "PL Software") are owned by PL Software Lab and protected by applicable copyright, trademark, and intellectual property laws worldwide.
+      </p>
+
+      <h2>9. App Updates, Internet Access &amp; Availability</h2>
+      <p>
+        We may periodically release updates, bug fixes, or changes to the App, and may modify, suspend, or discontinue any feature or the entire App at any time without liability. Certain features (such as online radio streaming and advertisements) require an active internet connection; you are responsible for any mobile data or Wi-Fi charges incurred from your carrier or internet provider.
+      </p>
+
+      <h2>10. Google Play Terms</h2>
+      <p>
+        Your download and use of the App from Google Play is also subject to the Google Play Terms of Service. You acknowledge that these Terms are between you and PL Software Lab—not Google LLC—and that PL Software Lab is solely responsible for the App and its content, maintenance, and support.
+      </p>
+
+      <h2>11. Privacy</h2>
+      <p>
+        Your privacy is important to us. Please review our <a href="privacy-policy.html">Privacy Policy</a> to understand how we and our service providers collect, use, store, and protect information when you use the App.
+      </p>
+
+      <h2>12. Termination</h2>
+      <p>
+        These Terms remain in effect until terminated by either you or PL Software Lab. You may terminate them at any time by uninstalling the App and ceasing all use of the Service. We may suspend or terminate your access to the App immediately, without prior notice, if you breach these Terms or if we discontinue the Service. Upon termination, all licenses granted to you under these Terms will immediately cease.
+      </p>
+
+      <h2>13. Disclaimer of Warranties</h2>
+      <p>
+        TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE APP AND SERVICE ARE PROVIDED ON AN <strong>"AS IS"</strong> AND <strong>"AS AVAILABLE"</strong> BASIS WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE APP WILL BE UNINTERRUPTED, ERROR-FREE, SECURE, OR FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS.
+      </p>
+
+      <h2>14. Limitation of Liability</h2>
+      <p>
+        TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL PL SOFTWARE LAB OR ITS DEVELOPERS, AFFILIATES, OR LICENSORS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF DATA, PROFITS, REVENUE, OR GOODWILL ARISING OUT OF OR RELATED TO YOUR USE OF OR INABILITY TO USE THE APP, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. TO THE EXTENT LIABILITY CANNOT BE EXCLUDED, OUR TOTAL CUMULATIVE LIABILITY SHALL NOT EXCEED THE AMOUNT YOU PAID TO US FOR THE APP IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM (OR USD $10.00 IF YOU USED THE APP FREE OF CHARGE).
+      </p>
+      <p>
+        Some jurisdictions do not allow the exclusion of certain warranties or the limitation of liability for incidental or consequential damages; in such jurisdictions, our liability will be limited to the greatest extent permitted by law.
+      </p>
+
+      <h2>15. Governing Law &amp; Severability</h2>
+      <p>
+        These Terms shall be governed by and construed in accordance with applicable laws, without regard to conflict-of-law principles, while preserving any mandatory consumer protection rights provided by the laws of your country of residence. If any provision of these Terms is held to be invalid or unenforceable, the remaining provisions will remain in full force and effect.
+      </p>
+
+      <h2>16. Changes to These Terms</h2>
+      <p>
+        We may update these Terms of Service from time to time to reflect changes in our apps, legal requirements, or business practices. When we make changes, we will post the revised Terms on this page and update the "Effective Date &amp; Last Updated" date at the top. Your continued use of the App after any changes become effective constitutes your acceptance of the updated Terms.
+      </p>
+
+      <h2>17. Contact Us</h2>
+      <p>If you have any questions, feedback, support requests, or copyright notices regarding these Terms of Service or our Apps, please contact us:</p>
+      <ul>
+        <li><strong>Developer:</strong> PL Software Lab (PL Software)</li>
+        <li><strong>Email:</strong> <a href="mailto:pepotas07@gmail.com">pepotas07@gmail.com</a></li>
+        <li><strong>Website:</strong> <a href="https://pepotas07-commits.github.io/">https://pepotas07-commits.github.io/</a></li>
+      </ul>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">PL Software Lab</div>
+      <div class="footer-links">
+        <a href="index.html#products">Products</a>
+        <a href="index.html#about">About</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <div>© 2026 PL Software Lab</div>
+    </div>
+  </footer>
+
+</body>
+</html>
